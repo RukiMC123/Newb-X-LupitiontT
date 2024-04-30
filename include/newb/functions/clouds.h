@@ -95,7 +95,7 @@ float cloudDf(vec3 pos, float rain) {
   return smoothstep(0.2, 1.0, n * b);
 }
 
-vec4 renderClouds(vec3 vDir, vec3 vPos, float rain, float time, vec3 horizion) {
+vec4 renderClouds(vec3 vDir, vec3 vPos, float rain, float time, vec3 fogCol, vec3 skyCol) {
 
   float height = 7.0*mix(NL_CLOUD2_THICKNESS, NL_CLOUD2_RAIN_THICKNESS, rain);
 
@@ -138,26 +138,11 @@ vec4 renderClouds(vec3 vDir, vec3 vPos, float rain, float time, vec3 horizion) {
 
   d.y = 1.0 - 0.7*d.y*d.y;
  
-  if (horizion == NL_DAY_HORIZON_COL) {
-  vec4 col = vec4(0.6*vec3(NL_CLOUD2_DAY_COL), d.x);
-  col.rgb += (vec3(0.03,0.05,0.05) + 1.23*vec3(NL_CLOUD2_DAY_COL))*d.y;
+  vec4 col = vec4(0.6*skyCol, d.x);
+  col.rgb += (vec3(0.03,0.05,0.05) + 0.8*fogCol)*d.y;
   col.rgb *= 1.0 - 0.5*rain;
+
   return col;
- }
-  
- if (horizion == NL_DAWN_HORIZON_COL) {
-  vec4 col = vec4(0.6*vec3(NL_CLOUD2_DAWN_COL), d.x);
-  col.rgb += (vec3(0.03,0.05,0.05) + 0.8*vec3(NL_CLOUD2_DAWN_COL))*d.y;
-  col.rgb *= 1.0 - 0.5*rain;
-  return col;
- }
-  
- if (horizion == NL_NIGHT_HORIZON_COL) {
-  vec4 col = vec4(0.6*vec3(NL_CLOUD2_NIGHT_COL), d.x);
-  col.rgb += (vec3(0.03,0.05,0.05) + 0.8*vec3(NL_CLOUD2_NIGHT_COL))*d.y;
-  col.rgb *= 1.0 - 0.5*rain;
-  return col;
- }
 }
 
 // aurora is rendered on clouds layer
