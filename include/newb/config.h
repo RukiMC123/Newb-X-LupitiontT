@@ -164,7 +164,7 @@
 #define NL_CLOUD2_DAY_COL vec3(1.0)
 
 /* Clouds Noise */
-#define NL_NOISE_TYPE 1
+#define NL_NOISE_TYPE 2
 
 /* -------- CONFIG ENDS HERE ----------- */
 
@@ -193,6 +193,7 @@
 #undef NL_CLOUD2_SCALE
 #undef NL_CLOUD2_SHAPE
 #undef NL_CLOUD2_DENSITY
+#undef NL_NOISE_TYPE 
 
 #define NL_CLOUD2_THICKNESS 3.5 
 #define NL_CLOUD2_RAIN_THICKNESS 3.5 
@@ -200,6 +201,7 @@
 #define NL_CLOUD2_SCALE 0.02   
 #define NL_CLOUD2_SHAPE 0.3   
 #define NL_CLOUD2_DENSITY 100.0  
+#define NL_NOISE_TYPE 1
 #endif
 
 #ifdef VOLUMETRIC_CLOUD2_MULTILAYER
@@ -209,6 +211,7 @@
 #undef NL_CLOUD2_SCALE
 #undef NL_CLOUD2_SHAPE
 #undef NL_CLOUD2_DENSITY
+#undef NL_NOISE_TYPE 
 
 #define NL_CLOUD2_THICKNESS 3.5 
 #define NL_CLOUD2_RAIN_THICKNESS 3.5 
@@ -216,6 +219,7 @@
 #define NL_CLOUD2_SCALE 0.02   
 #define NL_CLOUD2_SHAPE 0.3   
 #define NL_CLOUD2_DENSITY 100.0  
+#define NL_NOISE_TYPE 1
 #define NL_CLOUD2_MULTILAYER
 #endif
 
